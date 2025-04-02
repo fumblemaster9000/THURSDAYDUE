@@ -105,7 +105,6 @@ public class StudentManager {
     private void saveStudentToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword");
-            writer.newLine();
             for (Student student : students) { //students is never initialized???
                 writer.write(student.getStudentID() + "\t" +
                         student.getname() + "\t" +
@@ -182,10 +181,10 @@ public class StudentManager {
                 if (row >= 1){
                     String[] parts = line.split("\t");
 
-                    if (parts.length == 14) {
+                    if (parts.length == 12) {
                         Student student = new Student(parts[0], parts[1], parts[2], parts[3],
                                 parts[4], parts[5], parts[6], parts[7],parts[8],parts[9],
-                                parts[10],parts[11],parts[12],parts[13]);
+                                parts[10],parts[11]);
                         this.students.add(student);
                     }}
                 row+=1;

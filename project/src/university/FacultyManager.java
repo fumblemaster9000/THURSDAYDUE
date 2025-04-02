@@ -110,7 +110,6 @@ public class FacultyManager {
     private void saveFacultyToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write("Faculty ID\tName\tDegree\tResearch Interest\tEmail\tOffice Location\tCourses Offered\tPassword\n");
-            writer.newLine();
             for (Faculty faculty : faculties) {
                 writer.write(faculty.getFacultyID() + "\t" +
                         faculty.getName() + "\t" +
@@ -135,8 +134,7 @@ public class FacultyManager {
 
     public String Email(String name){
         String[] parts = name.split(" ");
-        String Email = parts[parts.length - 1];
-
+        String Email = parts[parts.length - 1].toLowerCase() + "@university.edu";
         return Email;
     }
 

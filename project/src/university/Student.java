@@ -12,14 +12,12 @@ public class Student extends User {
     private String subjectsregistered; // Converted from ArrayList to String
     private String thesistitle;
     private String progress;
-    private String tuition; // Converted from double to String
-    private String Grades;  // Already String
 
     // Constructor with all fields as Strings
     public Student(String userId, String name, String address, String Telephone, String email,
             String AcademicLevel, String CurrentSemester, String ProfilePhoto,
             String subjectsregistered, String thesistitle, String progress,
-            String password, String tuition, String Grades) {
+            String password) {
 
         super(userId, password, name, email); // Matches superclass fields
         this.address = address;
@@ -30,8 +28,6 @@ public class Student extends User {
         this.subjectsregistered = subjectsregistered;
         this.thesistitle = thesistitle;
         this.progress = progress;
-        this.tuition = tuition;
-        this.Grades = Grades;
     }
 
     // Getters
@@ -81,13 +77,6 @@ public class Student extends User {
         return progress;
     }
 
-    public String getTuition() {
-        return tuition;
-    }
-
-    public String getGrades() {
-        return Grades;
-    }
 
     //SETTERS
 
@@ -123,13 +112,7 @@ public class Student extends User {
         this.progress = progress;
     }
 
-    public void setTuition(String tuition) {
-        this.tuition = tuition;
-    }
 
-    public void setGrades(String Grades) {
-        this.Grades = Grades;
-    }
 
     public void setPassword (String password){
         LoadFile fileload = new LoadFile();

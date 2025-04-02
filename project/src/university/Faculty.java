@@ -63,18 +63,19 @@ public class Faculty extends User {
 
     //SETTERS
     public void setPassword (String password){
-        LoadFile fileload = new LoadFile();
-        fileload.writeToFile("TextData/Faculty.txt", "Password", userId, password);
+        super.setPassword(password);
     }
 
     public void setFacultytName (String name){
-        LoadFile fileload = new LoadFile();
-        fileload.writeToFile("TextData/Student.txt", "Name", userId, name);
+        super.setName(name);
     }
 
     public void setFacultyID(String ID){
-        LoadFile fileload = new LoadFile();
-        fileload.writeToFile("TextData/Student.txt", "Faculty ID", userId, ID);
+        super.setUserId(ID);
+    }
+
+    public void setFacultyEmail(String email){
+        super.setEmail(email);
     }
 
     public void setDegree(String Degree) {

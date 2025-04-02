@@ -167,18 +167,12 @@ public class Admin extends User {
         String thesistitle = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Thesis Title");
         String progress = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Progress");
         String password = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Password");
-        String tuition =  "$5000";
-        if (AcademicLevel.equals("Undergraduate")) {
-            tuition = "$5000";
-        } else {
-            tuition = "$4000";
-        }
-        String Grades = "A";
+
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
                 subjectsregistered, thesistitle, progress,
-                password,tuition,Grades);
+                password);
     }
 
     private Student setStudentDetails(Scanner scanner){
@@ -218,19 +212,12 @@ public class Admin extends User {
         System.out.println("Enter the student's password");
         String password = scanner.nextLine();
         scanner.nextLine();
-        String tuition = "$5000";
-        if (AcademicLevel.equals("Undergraduate")) {
-            tuition = "$5000";
-        } else {
-            tuition = "$4000";
-        }
-        System.out.println("Enter student's Grades");
-        String Grades = scanner.nextLine();
+
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
                 subjectsregistered, thesistitle, progress,
-                password,tuition,Grades);
+                password);
     }
 
     private void handleFacultyOptions(Scanner scanner, FacultyManager facultyManager){
