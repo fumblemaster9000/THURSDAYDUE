@@ -14,12 +14,13 @@ public class Student extends User {
     private String progress;
     private String tuition; // Converted from double to String
     private String Grades;  // Already String
+    private ArrayList<String> Rolledcourses;
 
     // Constructor with all fields as Strings
     public Student(String userId, String name, String address, String Telephone, String email,
             String AcademicLevel, String CurrentSemester, String ProfilePhoto,
             String subjectsregistered, String thesistitle, String progress,
-            String password, String tuition, String Grades) {
+            String password, String tuition, String Grades,ArrayList<String> Rolledcourses) {
 
         super(userId, password, name, email); // Matches superclass fields
         this.address = address;
@@ -32,6 +33,7 @@ public class Student extends User {
         this.progress = progress;
         this.tuition = tuition;
         this.Grades = Grades;
+        this.Rolledcourses = Rolledcourses;
     }
 
     // Getters
@@ -146,6 +148,7 @@ public class Student extends User {
     public void setStudentEmail (String email){
         super.setEmail(email);
     }
+
 
     @Override
     public void displayOptions() {
