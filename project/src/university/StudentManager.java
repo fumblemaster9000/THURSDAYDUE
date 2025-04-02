@@ -104,7 +104,7 @@ public class StudentManager {
 
     private void saveStudentToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword");
+            writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword\tGrades\tTuition");
             writer.newLine();
             for (Student student : students) {
                 writer.write(student.getStudentID() + "\t" +
@@ -118,7 +118,9 @@ public class StudentManager {
                         student.getSubjectsRegistered() + "\t" +
                         student.getThesisTitle() + "\t" +
                         student.getProgress() + "\t" +
-                        student.getpassword() + "\t");
+                        student.getpassword() + "\t" +
+                        student.getGrades() + "\t" +
+                        student.getTuition());
                 writer.newLine();
             }
             System.out.println("Student saved to file.");

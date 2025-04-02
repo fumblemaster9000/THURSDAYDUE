@@ -20,7 +20,7 @@ public class Student extends User {
     public Student(String userId, String name, String address, String Telephone, String email,
             String AcademicLevel, String CurrentSemester, String ProfilePhoto,
             String subjectsregistered, String thesistitle, String progress,
-            String password, String tuition, String Grades,ArrayList<String> Rolledcourses) {
+            String password, String tuition, String Grades) {
 
         super(userId, password, name, email); // Matches superclass fields
         this.address = address;

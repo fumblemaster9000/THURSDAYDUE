@@ -96,6 +96,7 @@ public class CourseManager {
     private void saveCoursesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (Course course : courses) {
+                writer.write("Course Code\tCourse Name\tSubject Code\tSection Number\tCapacity\tLecture Time\tFinal Exam Date/Time\tLocation\tTeacher Name\n");
                 writer.write(course.getCourseName() + "\t" +
                         course.getCourseCode() + "\t" +
                         course.getSubjectName() + "\t" +

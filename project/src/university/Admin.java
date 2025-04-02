@@ -2,6 +2,7 @@ package university;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Admin extends User {
@@ -182,50 +183,57 @@ public class Admin extends User {
     }
 
     private Student setStudentDetails(Scanner scanner){
-        System.out.println("Enter student ID");
-        String studentID = scanner.nextLine();
-        scanner.nextLine();
+        LoadFile fileload = new LoadFile();
+        int[][] arr = fileload.arraydimension("TextData/Student.txt");
+        String checker = "";
+        String randID = "";
+        while(true) {
+            Random random = new Random();
+            int randomNumber = random.nextInt(10000);
+            if (randomNumber >= 1000) {
+                randID = "S2025" + randomNumber; // For numbers 1000 to 9999
+            } else if (randomNumber >= 100) {
+                randID = "S20250" + randomNumber; // For numbers 100 to 999
+            } else if (randomNumber >= 10) {
+                randID = "S202500" + randomNumber; // For numbers 10 to 99
+            } else {
+                randID = "S2025000" + randomNumber; // For numbers 0 to 9
+            }
+
+            ArrayList<String> array = fileload.fetchAll("TextData/Student.txt", checker, "Student ID");
+            if (array.size() == 0){
+                break;
+            }
+        }
+        String studentID = randID;
         System.out.println("Enter student's name");
         String name = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the address of the student");
         String address = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the student's Telephone");
         String Telephone = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the student's Email");
         String email = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the student's academic level");
         String AcademicLevel = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the current semester the student is in");
         String CurrentSemester = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the student's profile photo");
         String ProfilePhoto = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the subjects that the student will be register in");
         String subjectsregistered = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the Thesis Title that the student is working on");
         String thesistitle = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Enter the progress of the student");
         String progress = scanner.nextLine();
-        scanner.nextLine();
-        System.out.println("Enter the student's password");
-        String password = scanner.nextLine();
-        scanner.nextLine();
+        String password = "default123";
         String tuition = "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
         } else {
             tuition = "$4000";
         }
-        System.out.println("Enter student's Grades");
-        String Grades = scanner.nextLine();
+        String Grades = "0";
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
