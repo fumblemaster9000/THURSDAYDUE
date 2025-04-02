@@ -1,4 +1,0 @@
-Event Code	Event Name	Description	Location	Date and Time	Capacity	Cost	Header Image	Registered Students
-EV001	Welcome Seminar	Orientation week	Auditorium	9/1/2025 10:00	100	Free	default	Alice Smith, Bob Johnson, Jennifer Davis, Helxen Jones
-EV002	Research Workshop	Graduate workshop	Lab 301	10/5/2025 14:00	50	Paid ($20)	default	Alice Smith, Bob Johnson, Lucka Racki,Helen Jones,David Lee
-END
