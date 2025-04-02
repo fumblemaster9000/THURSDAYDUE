@@ -1,0 +1,10 @@
+Subject Name	Subject Code
+Mathematics	MATH001
+English	ENG101
+Computer Science	CS201
+Chemistry	CHEM200
+Biology	BIO300
+Engineering	ENGG402
+History	HIST101
+Psychology	PSYCHO100
+BALLS101	Baws I
