@@ -9,7 +9,7 @@ import java.util.Random;
 import static java.lang.System.in;
 
 public class StudentManager {
-    private List<Student> students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>(); //list is NULL because students are not loaded
     private String fileName = "TextData/Student.txt";
 
     //USER FEATURES
@@ -106,7 +106,7 @@ public class StudentManager {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword");
             writer.newLine();
-            for (Student student : students) {
+            for (Student student : students) { //students is never initialized???
                 writer.write(student.getStudentID() + "\t" +
                         student.getname() + "\t" +
                         student.getAddress() + "\t" +

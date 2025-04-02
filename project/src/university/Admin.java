@@ -155,7 +155,7 @@ public class Admin extends User {
         }
     }
 
-    private Student getStudentDetails(String studentID){
+    private Student getStudentDetails(String studentID){//better to use the loadfile method and iterate through the list
         String name = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Name");
         String address = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Address");
         String Telephone = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Telephone");
