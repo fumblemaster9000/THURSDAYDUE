@@ -243,12 +243,16 @@ public class Admin extends User {
         } else {tuition = "$0";}
         String Grades = "0";
         String Rolledcourses = "";
-        String input = "";
-        System.out.println("Enter the courses to be enrolled by the student, type \"DONE\" to finish");
+        String courseName = "";
+        String section;
+        System.out.println("Enter the courses and section numbers to be enrolled by the student, type \"DONE\" to finish");
         while(true){
-            input = scanner.nextLine();
-            if (!input.equals("DONE")) {
-                Rolledcourses = Rolledcourses + "," + input; //still needs input verif
+            System.out.println("Enter CourseName ex. Calculus I");
+            courseName = scanner.nextLine();
+            System.out.println("Enter Section Number ex. Section 1");
+            section = scanner.nextLine();
+                if (!courseName.equals("DONE")) {
+                Rolledcourses = courseName + "," + section; //still needs input verif
             }else{
                 break;
             }
