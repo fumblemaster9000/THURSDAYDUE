@@ -20,10 +20,10 @@ public class CourseManager {
         }
     }
 
-    public void editCourse(String courseCode, Course updatedCourse) {
+    public void editCourse(String courseName, String sectionNumber, Course updatedCourse) {
         loadCoursesFromFile(); // Load existing courses before editing
         for (Course course : courses) {
-            if (course.getCourseCode().equals(courseCode)) {
+            if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)) {
                 // Use setters to update the course attributes
                 course.setCourseCode(updatedCourse.getCourseCode());
                 course.setCourseName(updatedCourse.getCourseName());
@@ -44,9 +44,10 @@ public class CourseManager {
     }
 
 
-    public void deleteCourse(String courseCode) {
+    public void deleteCourse(String courseName, String sectionNumber) {
         loadCoursesFromFile(); // Load existing courses before deleting
-        courses.removeIf(course -> course.getCourseCode().equals(courseCode));
+        courses.removeIf(course -> course.getCourseName().equals(courseName) &&
+                course.getSectionNumber().equals(sectionNumber));
         saveCoursesToFile();
         System.out.println("Course deleted successfully!");
     }
@@ -74,10 +75,10 @@ public class CourseManager {
         }
     }
 
-    public void assignFaculty(String courseCode, String teacherName) {
+    public void assignFaculty(String courseName, String sectionNumber, String teacherName) {
         loadCoursesFromFile(); // Load existing courses before assigning faculty
         for (Course course : courses) {
-            if (course.getCourseCode().equals(courseCode)) {
+            if (course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)) {
                 course.setTeacherName(teacherName);
                 saveCoursesToFile();
                 System.out.println("Faculty assigned successfully!");
@@ -87,7 +88,7 @@ public class CourseManager {
         System.out.println("Course not found.");
     }
 
-    public void manageEnrollments(String courseCode) {
+    public void manageEnrollments(String courseName, String sectionNumber) {
         // Implementation for managing enrollments (e.g., view enrolled students, add/remove students)
     }
 
