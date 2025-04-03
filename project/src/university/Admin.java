@@ -331,38 +331,44 @@ public class Admin extends User {
 
                 case 2:
                     courseManager.viewCourses();
-                    System.out.println("Enter course code to edit:");
-                    String courseCode = scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    String courseName= scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    String sectionNumber= scanner.nextLine();
                     for (Course course : courses){
-                        if(course.getCourseCode().equals(courseCode)){
+                        if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
                             Set_Get_Details updatedCourse = new Set_Get_Details();
-                            courseManager.editCourse(courseCode, updatedCourse.getCourseDetails(scanner));
+                            courseManager.editCourse(courseName, sectionNumber, updatedCourse.getCourseDetails(scanner));
                         }
                     }
                     break;
 
                 case 3:
                     courseManager.viewCourses();
-                    System.out.println("Enter course code to delete:");
-                    courseCode = scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    courseName= scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    sectionNumber = scanner.nextLine();
                     for (Course course : courses){
-                        if(course.getCourseCode().equals(courseCode)){
+                        if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
                             Set_Get_Details updatedCourse = new Set_Get_Details();
-                            courseManager.editCourse(courseCode, updatedCourse.getCourseDetails(scanner));
+                            courseManager.editCourse(courseName, sectionNumber, updatedCourse.getCourseDetails(scanner));
                         }
                     }
-                    courseManager.deleteCourse(courseCode);
+                    courseManager.deleteCourse(courseName, sectionNumber);
                     break;
 
                 case 4:
                     courseManager.viewCourses();
-                        System.out.println("Enter course code to assign faculty:");
-                        courseCode = scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    courseName= scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    sectionNumber = scanner.nextLine();
                         for (Course course : courses){
-                            if(course.getCourseCode().equals(courseCode)){
+                            if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
                                 System.out.println("Enter teacher name:");
                                 String teacherName = scanner.nextLine();
-                                courseManager.assignFaculty(courseCode, teacherName);
+                                courseManager.assignFaculty(courseName, sectionNumber, teacherName);
                                 break;
                             }
                         }
@@ -370,11 +376,13 @@ public class Admin extends User {
 
                 case 5:
                     courseManager.viewCourses();
-                    System.out.println("Enter course code to manage enrollments:");
-                    courseCode = scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    courseName= scanner.nextLine();
+                    System.out.println("Enter course name to delete:");
+                    sectionNumber = scanner.nextLine();
                     for (Course course : courses){
-                        if(course.getCourseCode().equals(courseCode)){
-                            courseManager.manageEnrollments(courseCode);
+                        if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
+                            courseManager.manageEnrollments(courseName, sectionNumber);
                             break;
                         }
                     }
