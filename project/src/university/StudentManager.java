@@ -24,6 +24,9 @@ public class StudentManager {
         System.out.println("Address: " + student.getAddress());
         System.out.println("Student ID: " + student.getStudentID());
         System.out.println("Progress: " + student.getProgress());
+        System.out.println("Grades: " + student.getGrades());
+        System.out.println("Tuition Status: " + student.getTuition());
+        System.out.println("Enrolled Courses: " + student.getRolledCourses());
     }
 
     public void editprofile(Student student) {
