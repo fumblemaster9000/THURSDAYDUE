@@ -62,9 +62,9 @@ public class StudentManager {
         ArrayList<String> teacherList = fileload.fetchAll("TextData/Courses.txt", student.getSubjectsRegistered(), "Teacher Name");
         for (String teacher : teacherList) {
             System.out.println(fileload.fetchAnything("TextData/Faculty.txt", teacher, "Name"));
-            System.out.println(fileload.fetchAnything("TextData/Faculty.txt", teacher, "Email"));
-            System.out.println(fileload.fetchAnything("TextData/Faculty.txt", teacher, "Research Interest"));
-            System.out.println(fileload.fetchAnything("TextData/Faculty.txt", teacher, "Office Location"));
+            System.out.println(fileload.fetchAnything1("TextData/Faculty.txt", teacher,"Name", "Email"));
+            System.out.println(fileload.fetchAnything1("TextData/Faculty.txt", teacher, "Name","Research Interest"));
+            System.out.println(fileload.fetchAnything1("TextData/Faculty.txt", teacher, "Name","Office Location"));
         }
     }
 
@@ -167,7 +167,7 @@ public class StudentManager {
 
         String[][] array = fileload.readFromFile("TextData/Student.txt");
         for(int i = 0; i < array.length-1 ; i++){
-            checker = checker + array[i][0] + "\t" + array[i][1] + "\t" + array[i][2] + "\t" + array[i][3] + "\t" + array[i][4] + "\t" + array[i][5] + "\t" + array[i][6] + "\t" + array[i][7] + "\t" + array[i][8] + "\t" + array[i][9] + "\t" + array[i][10] + "\t" + array[i][11] + "\n";
+            checker = checker + array[i][0] + "\t" + array[i][1] + "\t" + array[i][2] + "\t" + array[i][3] + "\t" + array[i][4] + "\t" + array[i][5] + "\t" + array[i][6] + "\t" + array[i][7] + "\t" + array[i][8] + "\t" + array[i][9] + "\t" + array[i][10] + "\t" + array[i][11] + "\t"+ array[i][12] + "\t" + array[i][13] + "\n";
         }
 
         String newString = checker + randID + "\t" + Name + "\t" + Address + "\t" + Telephone + "\t" + Email + "\t" + Academiclevel + "\t" + CurrentSmester + "\t" + "default" + "\t" + SubjectsRegistered + "\t" + "_" + "\t" + Progress + "\t" + "default123";

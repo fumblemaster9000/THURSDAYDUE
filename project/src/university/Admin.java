@@ -129,7 +129,7 @@ public class Admin extends User {
             case 2:
                 System.out.println("Enter the ID of student");
                 String studentID = scanner.nextLine();
-                Student updatedStudentProfile = getStudentDetails(studentID);
+                Student updatedStudentProfile = setStudentDetails(scanner);
                 studentManager.editStudent(studentID, updatedStudentProfile);
                 break;
             case 3:
@@ -223,7 +223,7 @@ public class Admin extends User {
         System.out.println("Enter the subjects that the student will be register in");
         String subjectsregistered = scanner.nextLine();
         System.out.println("Enter the Thesis Title that the student is working on");
-        String thesistitle = scanner.nextLine();
+        String thesistitle = ("\"" + scanner.nextLine() + "\"");
         System.out.println("Enter the progress of the student");
         String progress = scanner.nextLine();
         String password = "default123";
@@ -330,8 +330,8 @@ public class Admin extends User {
                             courseManager.editCourse(courseCode, updatedCourse);
                         }
                     }
-
                     break;
+
                 case 3:
                     courseManager.viewCourses();
                     System.out.println("Enter course code to delete:");
