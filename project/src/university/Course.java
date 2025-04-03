@@ -1,9 +1,9 @@
 package university;
 
 public class Course {
-    private String courseName; //data attributes are good
     private String courseCode;
-    private String subjectName;
+    private String courseName; //data attributes are good
+    private String subjectCode;
     private String sectionNumber;
     private String teacherName;
     private int capacity;
@@ -11,10 +11,10 @@ public class Course {
     private String finalExamDateTime;
     private String location;
 
-    public Course(String courseName, String courseCode, String subjectName, String sectionNumber, int capacity, String lectureTime, String finalExamDateTime, String location, String teacherName) {
-        this.courseName = courseName;
+    public Course(String courseCode, String courseName, String subjectCode, String sectionNumber, int capacity, String lectureTime, String finalExamDateTime, String location, String teacherName) {
         this.courseCode = courseCode;
-        this.subjectName = subjectName;
+        this.courseName = courseName;
+        this.subjectCode = subjectCode;
         this.sectionNumber = sectionNumber;
         this.teacherName = teacherName;
         this.capacity = capacity;
@@ -40,12 +40,12 @@ public class Course {
         this.courseCode = courseCode;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public String getSubjectCode() {
+        return subjectCode;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
     }
 
     public String getSectionNumber() {
@@ -98,7 +98,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course [Name=" + courseName + ", Code=" + courseCode + ", Subject=" + subjectName +
+        return "Course [Name=" + courseName + ", Code=" + courseCode + ", Subject=" + subjectCode +
                 ", Section=" + sectionNumber + ", Teacher=" + teacherName + ", Capacity=" + capacity +
                 ", Lecture Time=" + lectureTime + ", Final Exam=" + finalExamDateTime + ", Location=" + location + "]";
     }

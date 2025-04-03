@@ -24,8 +24,9 @@ public class CourseManager {
         for (Course course : courses) {
             if (course.getCourseCode().equals(courseCode)) {
                 // Use setters to update the course attributes
+                course.setCourseCode(updatedCourse.getCourseCode());
                 course.setCourseName(updatedCourse.getCourseName());
-                course.setSubjectName(updatedCourse.getSubjectName());
+                course.setSubjectCode(updatedCourse.getSubjectCode());
                 course.setSectionNumber(updatedCourse.getSectionNumber());
                 course.setTeacherName(updatedCourse.getTeacherName());
                 course.setCapacity(updatedCourse.getCapacity());
@@ -55,7 +56,7 @@ public class CourseManager {
             System.out.println("No courses available.");
         } else {
             for (Course course : courses) {
-                if (course.getSubjectName().equals(subjname)){
+                if (course.getSubjectCode().equals(subjname)){
                     System.out.println(course);}
             }
         }
@@ -95,11 +96,11 @@ public class CourseManager {
 
     private void saveCoursesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("Course Code\tCourse Name\tSubject Code\tSection Number\tCapacity\tLecture Time\tFinal Exam Date/Time\tLocation\tTeacher Name");
             for (Course course : courses) {
-                writer.write("Course Code\tCourse Name\tSubject Code\tSection Number\tCapacity\tLecture Time\tFinal Exam Date/Time\tLocation\tTeacher Name\n");
                 writer.write(course.getCourseName() + "\t" +
                         course.getCourseCode() + "\t" +
-                        course.getSubjectName() + "\t" +
+                        course.getSubjectCode() + "\t" +
                         course.getSectionNumber() + "\t" +
                         course.getTeacherName() + "\t" +
                         course.getCapacity() + "\t" +
