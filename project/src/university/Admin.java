@@ -440,13 +440,13 @@ public class Admin extends User {
         String courseCode = "1";
         System.out.println("Enter subject name:");
         //String subjectName = scanner.nextLine();
-        String subjectName = "Raymond";
+        String subjectCode = "MATH001";
         System.out.println("Enter section number:");
         //String sectionNumber = scanner.nextLine();
         String sectionNumber = "Section 1";
         System.out.println("Enter teacher name:");
         //String teacherName = scanner.nextLine();
-        String teacherName = "MATH001";
+        String teacherName = " Raymond";
         System.out.println("Enter capacity:");
         //int capacity = scanner.nextInt();
         int capacity = 21;
@@ -461,7 +461,8 @@ public class Admin extends User {
         //String location = scanner.nextLine();
         String location = "Room 101";
 
-        return new Course(courseName, courseCode, subjectName, sectionNumber, capacity, lectureTime, finalExamDateTime, location, teacherName);
+        return new Course(courseName, courseCode, subjectCode, sectionNumber,
+                capacity, lectureTime, finalExamDateTime, location, teacherName);
     }
 
     private Event getEventDetails(Scanner scanner) {
