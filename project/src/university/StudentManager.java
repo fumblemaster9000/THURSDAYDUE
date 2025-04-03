@@ -45,6 +45,7 @@ public class StudentManager {
                 System.out.print("Upload your photo:");
                 //code for photo upload
         }
+        saveStudentToFile();
     }
 
     public void viewenrolledcourses(String Subject) { //displays list of courses with corresponding subject

@@ -171,14 +171,13 @@ public class Student extends User {
             System.out.println("6. Exit");//works
             int choice = scanner.nextInt();
             scanner.nextLine();  // Consume newline
-
+            StudentManager studentManager = new StudentManager();
             switch (choice) {
                 case 1:
                     SubjectManager subjectManager = new SubjectManager();
                     subjectManager.viewSubjects();
                     break;
                 case 2:
-                    StudentManager studentManager = new StudentManager();
                     studentManager.viewFacultyProfiles(this);
                     break;
                 case 3:
@@ -197,6 +196,9 @@ public class Student extends User {
                     break;
 
                 case 6:
+                    studentManager.editprofile(this);
+
+                case 7:
                     System.out.println("Exiting...");
                     return;
 
