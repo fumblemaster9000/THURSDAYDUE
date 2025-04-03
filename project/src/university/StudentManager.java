@@ -110,7 +110,7 @@ public class StudentManager {
 
     private void saveStudentToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword\tGrades\tTuition");
+            writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword\tGrades\tTuition Registered Courses");
             writer.newLine();
             for (Student student : students) {
                 writer.write(student.getStudentID() + "\t" +
