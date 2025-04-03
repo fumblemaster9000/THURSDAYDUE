@@ -105,6 +105,10 @@ public class Admin extends User {
             case 4:
                 subjectManager.viewSubjects();
                 break;
+            case 5:
+                return;
+            default:
+                System.out.println("Invalid choice. Please try again.");
         }
     }
 
