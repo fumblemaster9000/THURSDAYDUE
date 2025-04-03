@@ -149,7 +149,9 @@ public class Admin extends User {
                 Student newStudentDetails = getStudentDetails(studentID);
                 studentManager.viewprofile(newStudentDetails);
                 break;
+
             case 5:
+                
                 break;
             case 6:
                 break;

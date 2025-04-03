@@ -184,7 +184,7 @@ public class Student extends User {
                     Set_Get_Details editDetails = new Set_Get_Details();
                     studentManager.editprofile(editDetails.getStudentDetails(getStudentID()));
                 case 3:
-                    SubjectManager subjectManager = new SubjectManager();
+                    SubjectManager subjectManager = new SubjectManager(); //add subject manager to only show enrolled courses
                     subjectManager.viewSubjects();
                     break;
                 case 4:
