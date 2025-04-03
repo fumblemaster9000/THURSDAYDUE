@@ -103,41 +103,49 @@ public class Faculty extends User {
         Scanner scanner = new Scanner(System.in);
         //testmethod();
         while (true) {
-            System.out.println("1. View all Subjects");
-            System.out.println("2. View Courses");
-            System.out.println("3. View The Courses you manage and all of the student who are registered in it");
-            System.out.println("4. View Events (Including Registered)"); //students already registered will get not registered message
-            System.out.println("5. Register for Events");
-            System.out.println("6. Exit");//works
+            System.out.println("1. View Profile");
+            System.out.println("2. View all Subjects");
+            System.out.println("3. View all Subjects");
+            System.out.println("4. View Courses");
+            System.out.println("5. View The Courses you manage and all of the student who are registered in it");
+            System.out.println("6. View Events (Including Registered)"); //students already registered will get not registered message
+            System.out.println("7. Register for Events");
+            System.out.println("8. Exit");//works
             int choice = scanner.nextInt();
             scanner.nextLine();  // Consume newline
 
             switch (choice) {
                 case 1:
+                    FacultyManager facultyManager = new FacultyManager();
+                    Set_Get_Details getDetails = new Set_Get_Details();
+                    facultyManager.viewprofile(getDetails.getFacultyDetails(getemail()));
+                    break;
+                case 3:
                     SubjectManager subjectManager = new SubjectManager();
                     subjectManager.viewSubjects();
                     break;
-                case 2:
+                case 4:
                     CourseManager courseManager = new CourseManager();
                     courseManager.viewCourses();
                     break;
-                case 3:
-                    FacultyManager facultyManager = new FacultyManager();
+                case 5:
+                    facultyManager = new FacultyManager();
+                    System.out.println("This are the courses you managing:" + getCoursesOffered());
                     facultyManager.viewStudentInformation(this);
                     break;
 
-                case 4:
+                case 6:
                     viewEventsIncludingRegistered();
                     break;
 
-                case 5:
+                case 7:
                     EventManager eventManager = new EventManager();
                     System.out.println("Enter event code:");
                     String eventCode = scanner.nextLine();
                     eventManager.manageRegistrations(eventCode, userId, name, "TextData/Faculty.txt"); //supposedly adds events
                     break;
 
-                case 6:
+                case 8:
                     System.out.println("Exiting...");
                     return;
 
