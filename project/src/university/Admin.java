@@ -323,17 +323,17 @@ public class Admin extends User {
             scanner.nextLine();  // Consume newline
 
             switch (choice) {
-                case 1:
+                case 1: //Add Course
                     courseManager.viewCourses();
                     Set_Get_Details newCourse = new Set_Get_Details();
                     courseManager.addCourse(newCourse.getCourseDetails(scanner));
                     break;
 
-                case 2:
+                case 2: //Edit Course
                     courseManager.viewCourses();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter the name of the course to edit:");
                     String courseName= scanner.nextLine();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter section number of the course to edit:");
                     String sectionNumber= scanner.nextLine();
                     for (Course course : courses){
                         if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
@@ -343,26 +343,25 @@ public class Admin extends User {
                     }
                     break;
 
-                case 3:
+                case 3: //Delete Course
                     courseManager.viewCourses();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter the name of the course to delete:");
                     courseName= scanner.nextLine();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter section number of the course to delete:");
                     sectionNumber = scanner.nextLine();
                     for (Course course : courses){
                         if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
-                            Set_Get_Details updatedCourse = new Set_Get_Details();
-                            courseManager.editCourse(courseName, sectionNumber, updatedCourse.getCourseDetails(scanner));
+                            courseManager.deleteCourse(courseName, sectionNumber);
+                            break;
                         }
                     }
-                    courseManager.deleteCourse(courseName, sectionNumber);
                     break;
 
-                case 4:
+                case 4: //Assign Faculty
                     courseManager.viewCourses();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter the name of the course to assign faculty to:");
                     courseName= scanner.nextLine();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter section number of the course to assign faculty to:");
                     sectionNumber = scanner.nextLine();
                         for (Course course : courses){
                             if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
@@ -374,11 +373,11 @@ public class Admin extends User {
                         }
                     break;
 
-                case 5:
+                case 5: //Manage Enrollments
                     courseManager.viewCourses();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter the name of the course to manage it enrollments:");
                     courseName= scanner.nextLine();
-                    System.out.println("Enter course name to delete:");
+                    System.out.println("Enter section number of the course to manage it enrollments:");
                     sectionNumber = scanner.nextLine();
                     for (Course course : courses){
                         if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
