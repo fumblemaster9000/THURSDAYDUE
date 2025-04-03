@@ -157,10 +157,11 @@ public class Student extends User {
         while (true) {
             System.out.println("Student Options for " + name + ":");
             System.out.println("1. View all Subjects");
-            System.out.println("2. View Courses that you are enrolled in"); //works fine
-            System.out.println("3. View Events (Including Registered)"); //students already registered will get not registered message
-            System.out.println("4. Register for Events");
-            System.out.println("5. Exit");//works
+            System.out.println("2. View Faculty Profiles");
+            System.out.println("3. View Courses that you are enrolled in"); //works fine
+            System.out.println("4. View Events (Including Registered)"); //students already registered will get not registered message
+            System.out.println("5. Register for Events");
+            System.out.println("6. Exit");//works
             int choice = scanner.nextInt();
             scanner.nextLine();  // Consume newline
 
@@ -170,22 +171,25 @@ public class Student extends User {
                     subjectManager.viewSubjects();
                     break;
                 case 2:
+                    StudentManager studentManager = new StudentManager();
+                    studentManager.viewFacultyProfiles(this);
+                    break;
+                case 3:
                     CourseManager courseManager = new CourseManager();
                     courseManager.viewCourses(); //works fine displaying all details
                     break;
-
-                case 3:
+                case 4:
                     viewEventsIncludingRegistered();
                     break;
 
-                case 4:
+                case 5:
                     EventManager eventManager = new EventManager();
                     System.out.println("Enter event code:");
                     String eventCode = scanner.nextLine();
                     eventManager.manageRegistrations(eventCode, userId, name, "TextData/Student.txt"); //supposedly adds events
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("Exiting...");
                     return;
 

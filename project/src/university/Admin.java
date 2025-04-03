@@ -34,7 +34,7 @@ public class Admin extends User {
 
             switch (choice) {
                 case 1:
-                    handleSubjectOptions();
+                    handleSubjectOptions(); // Handle subject-related options
                     break;
                 case 2:
                     handleCourseOptions(scanner, courseManager); // Handle course-related options
@@ -43,10 +43,10 @@ public class Admin extends User {
                     handleEventOptions(scanner, eventManager); // Handle event-related options
                     break;
                 case 4:
-                    handleStudentOptions(scanner, studentManager); // Handle event-related options
+                    handleStudentOptions(scanner, studentManager); // Handle student-related options
                     break;
                 case 5:
-                    handleFacultyOptions(scanner, facultyManager); // Handle event-related options
+                    handleFacultyOptions(scanner, facultyManager); // Handle faculty-related options
                     break;
                 case 6:
                     return;
