@@ -171,9 +171,10 @@ public class Admin extends User {
         String tuition =  "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
-        } else {
+        } else if(AcademicLevel.equals("Graduate") ) {
             tuition = "$4000";
-        }
+        } else {tuition = "$0";}
+        
         String Grades = "A";
 
         return new Student(studentID, name, address, Telephone,
@@ -230,9 +231,9 @@ public class Admin extends User {
         String tuition = "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
-        } else {
+        } else if(AcademicLevel.equals("Graduate") ) {
             tuition = "$4000";
-        }
+        } else {tuition = "$0";}
         String Grades = "0";
 
         return new Student(studentID, name, address, Telephone,
