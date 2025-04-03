@@ -123,7 +123,7 @@ public class StudentManager {
                         student.getpassword() + "\t" +
                         student.getGrades() + "\t" +
                         student.getTuition() + "\t"
-                + student.getRole);
+                + student.getRolledCourses());
                 writer.newLine();
             }
             System.out.println("Student saved to file.");
