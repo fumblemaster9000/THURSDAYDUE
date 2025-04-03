@@ -208,8 +208,8 @@ public class Admin extends User {
                 randID = "S2025000" + randomNumber; // For numbers 0 to 9
             }
 
-            ArrayList<String> array = fileload.fetchAll("TextData/Student.txt", checker, "Student ID");
-            if (array.size() == 0){
+            ArrayList<String> array = fileload.fetchAll("TextData/Student.txt", randID, "Student ID");
+            if (array.isEmpty()){
                 break;
             }
         }
