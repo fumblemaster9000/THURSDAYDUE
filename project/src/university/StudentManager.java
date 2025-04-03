@@ -63,8 +63,6 @@ public class StudentManager {
                 System.out.println("Invalid choice. Please try again.");
         }
 
-        // Save changes to the file
-        saveStudentToFile();
     }
 
     public void viewenrolledcourses(String Subject) { //displays list of courses with corresponding subject
