@@ -100,15 +100,16 @@ public class CourseManager {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write("Course Code\tCourse Name\tSubject Code\tSection Number\tCapacity\tLecture Time\tFinal Exam Date/Time\tLocation\tTeacher Name\n");
             for (Course course : courses) {
-                writer.write(course.getCourseCode() + "\t" +
+                writer.write(
+                        course.getCourseCode() + "\t" +
                         course.getCourseName() + "\t" +
                         course.getSubjectCode() + "\t" +
                         course.getSectionNumber() + "\t" +
-                        course.getTeacherName() + "\t" +
                         course.getCapacity() + "\t" +
                         course.getLectureTime() + "\t" +
                         course.getFinalExamDateTime() + "\t" +
-                        course.getLocation());
+                        course.getLocation() + "\t" +
+                    course.getTeacherName());
                 writer.newLine();
             }
             System.out.println("Courses saved to file.");
