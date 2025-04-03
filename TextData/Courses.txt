@@ -7,4 +7,3 @@ Course Code	Course Name	Subject Code	Section Number	Capacity	Lecture Time	Final 
 4	Introduction to Chemistry	CHEM200	Section 3	50	Fri/ Thu 2-3 PM	12/14/2025 4:00	Room 201	Dr. Lucka Lucku
 5	Introduction to French	ENG101	Section 1	25	Tue/Thur 4:30 - 5:30 PM	12/13/25 10:00	Room 202	Dr. Lakyn Copeland
 5	Introduction to French	ENG101	Section 2	25	Tue/Thur 5:30 - 6:30 PM	12/13/25 10:00	Room 202	Dr. Lakyn Copeland
-7	Balls IV	BALLS101	Section 69	2	9pm	4/3/2025	The Underworld	Mr.Balls
