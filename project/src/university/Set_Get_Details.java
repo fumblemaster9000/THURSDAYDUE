@@ -21,6 +21,7 @@ public class Set_Get_Details {
         String thesistitle = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Thesis Title");
         String progress = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Progress");
         String password = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Password");
+        String Rolledcourses = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Registered Courses");
         String tuition =  "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
@@ -33,7 +34,7 @@ public class Set_Get_Details {
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
                 subjectsregistered, thesistitle, progress,
-                password,tuition,Grades);
+                password,tuition,Grades, Rolledcourses);
     }
 
     private Student setStudentDetails(Scanner scanner){
@@ -88,14 +89,29 @@ public class Set_Get_Details {
             tuition = "$4000";
         } else {tuition = "$0";}
         String Grades = "0";
+        String Rolledcourses = "";
+        String courseName = "";
+        String section;
+        System.out.println("Enter the courses and section numbers to be enrolled by the student, type \"DONE\" to finish");
+        while(true){
+            System.out.println("Enter CourseName ex. Calculus I");
+            courseName = scanner.nextLine();
+            System.out.println("Enter Section Number ex. Section 1");
+            section = scanner.nextLine();
+            if (!courseName.equals("DONE")) {
+                Rolledcourses = courseName + "," + section + ";"; //still needs input verif
+            }else{
+                break; //output should look like (Calculus I,Section 1;History II,Section 0;...;...;.etc)
+            }
+        }
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
                 subjectsregistered, thesistitle, progress,
-                password,tuition,Grades);
+                password,tuition,Grades, Rolledcourses);
     }
 
-    private  Faculty getFacultyDetails(String facultyEmail){
+    Faculty getFacultyDetails(String facultyEmail){
 
         String FacultyID = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email","Faculty ID");
         String name = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email", "Name");
