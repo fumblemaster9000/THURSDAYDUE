@@ -174,6 +174,28 @@ public class CourseManager {
         String Line = loadFile.ID_FetchThing("TextData/Student.txt", studentID, "Registered Courses");
         return parseStringToPairs(Line);
     }
+
+    public void viewEnrolledCourses(String studentID) {
+        // Get the list of enrolled courses as pairs
+        List<String[]> enrolledCourses = getenrolled(studentID);
+
+        if (enrolledCourses == null || enrolledCourses.isEmpty()) {
+            System.out.println("No courses found for student ID: " + studentID);
+            return;
+        }
+
+        System.out.println("Enrolled courses for student ID: " + studentID);
+        for (String[] pair : enrolledCourses) {
+            // Ensure each pair has 2 elements (course name and section number)
+            if (pair.length == 2) {
+                System.out.println("Course Name: " + pair[0] + ", Section Number: " + pair[1]);
+            } else {
+                System.out.println("Invalid course pair found.");
+            }
+        }
     }
+
+
+}
 
 
