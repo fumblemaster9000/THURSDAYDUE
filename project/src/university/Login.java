@@ -62,7 +62,7 @@ public class Login {
                  return new Admin(obj[0],obj[1], obj[2], obj[3]);
 
              case 'S':
-                 return new Student(obj[0],obj[1], obj[2], obj[3], obj[4], obj[5], obj[6], obj[7], obj[8], obj[9], obj[10], obj[11], "Tuition", "Grades");
+                 return new Student(obj[0],obj[1], obj[2], obj[3], obj[4], obj[5], obj[6], obj[7], obj[8], obj[9], obj[10], obj[11], "Tuition", "Grades", obj[14]);
 
              case 'F':
                  return new Faculty(obj[0],obj[1], obj[2], obj[3], obj[4], obj[5], obj[6], obj[7]);

@@ -14,7 +14,7 @@ public class Student extends User {
     private String progress;
     private String tuition; // Converted from double to String
     private String Grades;  // Already String
-    private ArrayList<String> Rolledcourses;
+    private String Rolledcourses;
 
     // Constructor with all fields as Strings
     public Student(String userId, String name, String address, String Telephone, String email,
@@ -96,7 +96,7 @@ public class Student extends User {
     }
 
     //SETTERS
-    public void setRolledcourses(ArrayList<String> Rolledcourses){
+    public void setRolledcourses(String Rolledcourses){
         this.Rolledcourses = Rolledcourses;
     }
 
