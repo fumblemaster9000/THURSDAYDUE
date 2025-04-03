@@ -160,7 +160,6 @@ public class Student extends User {
     @Override
     public void displayOptions() {
         Scanner scanner = new Scanner(System.in);
-        testmethod(); //testing student manager methods
         while (true) {
             System.out.println("Student Options for " + name + ":");
             System.out.println("1. View Profile");
@@ -183,9 +182,9 @@ public class Student extends User {
                 case 2:
                     studentManager = new StudentManager();
                     Set_Get_Details editDetails = new Set_Get_Details();
-                    studentManager.editprofile(editDetails.getStudentDetails(getemail()));
+                    studentManager.editprofile(editDetails.getStudentDetails(getStudentID()));
                 case 3:
-                    SubjectManager subjectManager = new SubjectManager();
+                    SubjectManager subjectManager = new SubjectManager(); //add subject manager to only show enrolled courses
                     subjectManager.viewSubjects();
                     break;
                 case 4:
@@ -215,16 +214,6 @@ public class Student extends User {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-    }
-
-    public void testmethod(){
-        StudentManager studentManager = new StudentManager();
-//        studentManager.viewprofile(this);
-//        studentManager.viewenrolledcourses(subjectsregistered);
-//        studentManager.viewgrades(Grades);
-//        studentManager.viewtutionstatus(tuition);
-//        studentManager.editprofile(this);
-        studentManager.viewFacultyProfiles(this);
     }
 
     // Method to view all events and highlight registered events

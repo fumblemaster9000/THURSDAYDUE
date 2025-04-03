@@ -8,4 +8,3 @@ S20250006	Emily Brown	111 Oak Ave.	555-7890	brown@example.edu	Graduate	Fall 2025
 S20250008	Helen Jones	333 Maple Dr.	555-4567	jones@example.edu	Graduate	Fall 2025	default	PSYCHO100, Music102, HIST101	"The Effects of Stress on Cognitive Function"	50%	default123	0	0	na
 S20250009	Isaac Clark	444 Cedar Ln.	555-8901	clark@example.edu	Undergraduate	Fall 2025	default	BIo300	"_"	50%	default123	0	0	na
 S20250010	Jennifer Davis	555 Oakwood Pl.	555-3456	davis@example.edu	Graduate	Fall 2025	default	HIST101	"The Renaissance: Art, Culture, and Society"	20%	default123	0	0	na
-S20258547	Kyle Buchan	38.Diane Court	647 647 647	buchan@buchan	PHD	2	default	ENG101	""Zimbabwe""	60%	default123	0	$0	Calculus I,Section 1;
