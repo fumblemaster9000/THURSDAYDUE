@@ -11,7 +11,7 @@ public class CourseManager {
 
     public void addCourse(Course course) {
         loadCoursesFromFile(); // Load existing courses before adding a new one
-        if (isCourseUnique(course.getCourseName(),course.getSectionNumber())) { //get method of course
+        if (isCourseUnique(course.getCourseName(), course.getSectionNumber())) { //get method of course
             courses.add(course);
             saveCoursesToFile();
             System.out.println("Course added successfully!");
@@ -23,7 +23,7 @@ public class CourseManager {
     public void editCourse(String courseName, String sectionNumber, Course updatedCourse) {
         loadCoursesFromFile(); // Load existing courses before editing
         for (Course course : courses) {
-            if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)) {
+            if (course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)) {
                 // Use setters to update the course attributes
                 course.setCourseCode(updatedCourse.getCourseCode());
                 course.setCourseName(updatedCourse.getCourseName());
@@ -58,8 +58,9 @@ public class CourseManager {
             System.out.println("No courses available.");
         } else {
             for (Course course : courses) {
-                if (course.getSubjectCode().equals(subjname)){
-                    System.out.println(course);}
+                if (course.getSubjectCode().equals(subjname)) {
+                    System.out.println(course);
+                }
             }
         }
     }
@@ -135,7 +136,7 @@ public class CourseManager {
                         this.courses.add(course);
                     }
                 }
-                row+=1;
+                row += 1;
             }
             System.out.println("Courses loaded from file.");
         } catch (IOException e) {
@@ -144,7 +145,57 @@ public class CourseManager {
         }
     }
 
-    public List<Course> getCourses(){
+    public List<Course> getCourses() {
         return courses;
     }
+
+    public static List<String[]> parseStringToPairs(String input) {
+        List<String[]> pairs = new ArrayList<>();
+
+        // Split the input by semicolon to get individual pairs
+        String[] entries = input.split(";");
+
+        for (String entry : entries) {
+            // Check if the entry is not empty (to handle trailing semicolons)
+            if (!entry.isEmpty()) {
+                // Split each pair by the comma
+                String[] pair = entry.split(",");
+                if (pair.length == 2) { // Ensure it has exactly 2 elements
+                    pairs.add(pair);
+                }
+            }
+        }
+	    return pairs;
+    }
+
+
+    public List<String[]> getenrolled(String studentID) {
+        LoadFile loadFile = new LoadFile();
+        String Line = loadFile.ID_FetchThing("TextData/Student.txt", studentID, "Registered Courses");
+        return parseStringToPairs(Line);
+    }
+
+    public void viewEnrolledCourses(String studentID) {
+        // Get the list of enrolled courses as pairs
+        List<String[]> enrolledCourses = getenrolled(studentID);
+
+        if (enrolledCourses == null || enrolledCourses.isEmpty()) {
+            System.out.println("No courses found for student ID: " + studentID);
+            return;
+        }
+
+        System.out.println("Enrolled courses for student ID: " + studentID);
+        for (String[] pair : enrolledCourses) {
+            // Ensure each pair has 2 elements (course name and section number)
+            if (pair.length == 2) {
+                System.out.println("Course Name: " + pair[0] + ", Section Number: " + pair[1]);
+            } else {
+                System.out.println("Invalid course pair found.");
+            }
+        }
+    }
+
+
 }
+
+
