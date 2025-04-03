@@ -11,6 +11,7 @@ import static java.lang.System.in;
 public class StudentManager {
     private List<Student> students = new ArrayList<>();
     private String fileName = "TextData/Student.txt";
+    private LoadFile fileload = new LoadFile();
 
     //USER FEATURES
     public void viewprofile(Student student) { //views student profile
@@ -39,6 +40,7 @@ public class StudentManager {
                 System.out.print("Enter your new password: ");
                 scan.nextLine();
                 student.setPassword(scan.nextLine());
+                fileload.writeToFile("TextData/Faculty.txt","Password", student.getStudentID(),student.getpassword());
                 break;
 
             case 2:

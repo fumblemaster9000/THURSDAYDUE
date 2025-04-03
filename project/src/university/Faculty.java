@@ -104,7 +104,7 @@ public class Faculty extends User {
         //testmethod();
         while (true) {
             System.out.println("1. View Profile");
-            System.out.println("2. View all Subjects");
+            System.out.println("2. Edit Profile");
             System.out.println("3. View all Subjects");
             System.out.println("4. View Courses");
             System.out.println("5. View The Courses you manage and all of the student who are registered in it");
@@ -120,6 +120,10 @@ public class Faculty extends User {
                     Set_Get_Details getDetails = new Set_Get_Details();
                     facultyManager.viewprofile(getDetails.getFacultyDetails(getemail()));
                     break;
+                case 2:
+                    facultyManager = new FacultyManager();
+                    Set_Get_Details editDetails = new Set_Get_Details();
+                    facultyManager.editprofile(editDetails.getFacultyDetails(getemail()));
                 case 3:
                     SubjectManager subjectManager = new SubjectManager();
                     subjectManager.viewSubjects();
