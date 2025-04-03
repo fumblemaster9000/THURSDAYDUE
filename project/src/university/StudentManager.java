@@ -87,6 +87,8 @@ public class StudentManager {
                 student.setThesisTitle(updatedStudentProfile.getThesisTitle());
                 student.setProgress(updatedStudentProfile.getProgress());
                 student.setPassword(updatedStudentProfile.getpassword());
+                student.setGrades(updatedStudentProfile.getGrades());
+                student.setTuition(updatedStudentProfile.getTuition());
                 saveStudentToFile();
                 System.out.println("Student updated successfully!");
                 return;
