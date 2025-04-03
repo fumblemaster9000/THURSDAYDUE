@@ -10,6 +10,7 @@ import static java.lang.System.in;
 public class FacultyManager {
     private List<Faculty> faculties = new ArrayList<>();
     private String fileName = "TextData/Faculty.txt";
+    private LoadFile fileload = new LoadFile();
     //USER FEATURES
     public void viewprofile(Faculty faculty) { //views student profile
         System.out.println("Profile Photo: " + faculty.getProfilePhoto());
@@ -33,6 +34,7 @@ public class FacultyManager {
                 System.out.print("Enter your new password: ");
                 scan.nextLine();
                 faculty.setPassword(scan.nextLine());
+                fileload.writeToFile("TextData/Faculty.txt","Password", faculty.getFacultyID(),faculty.getpassword());
                 break;
 
             case 2:
