@@ -8,9 +8,10 @@ public class CourseManager {
 
     private List<Course> courses = new ArrayList<>();
     private String fileName = "TextData/Courses.txt";
+
     public void addCourse(Course course) {
         loadCoursesFromFile(); // Load existing courses before adding a new one
-        if (isCourseCodeUnique(course.getCourseCode())) { //get method of course
+        if (isCourseUnique(course.getCourseName(),course.getSectionNumber())) { //get method of course
             courses.add(course);
             saveCoursesToFile();
             System.out.println("Course added successfully!");
@@ -24,8 +25,9 @@ public class CourseManager {
         for (Course course : courses) {
             if (course.getCourseCode().equals(courseCode)) {
                 // Use setters to update the course attributes
+                course.setCourseCode(updatedCourse.getCourseCode());
                 course.setCourseName(updatedCourse.getCourseName());
-                course.setSubjectName(updatedCourse.getSubjectName());
+                course.setSubjectCode(updatedCourse.getSubjectCode());
                 course.setSectionNumber(updatedCourse.getSectionNumber());
                 course.setTeacherName(updatedCourse.getTeacherName());
                 course.setCapacity(updatedCourse.getCapacity());
@@ -55,7 +57,7 @@ public class CourseManager {
             System.out.println("No courses available.");
         } else {
             for (Course course : courses) {
-                if (course.getSubjectName().equals(subjname)){
+                if (course.getSubjectCode().equals(subjname)){
                     System.out.println(course);}
             }
         }
@@ -89,17 +91,18 @@ public class CourseManager {
         // Implementation for managing enrollments (e.g., view enrolled students, add/remove students)
     }
 
-    private boolean isCourseCodeUnique(String courseCode) {
-        return courses.stream().noneMatch(course -> course.getCourseCode().equals(courseCode));
+    private boolean isCourseUnique(String courseName, String sectionNumber) {
+        return courses.stream().noneMatch(course -> course.getCourseName().equals(courseName) &&
+                course.getSectionNumber().equals(sectionNumber));
     }
 
     private void saveCoursesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write("Course Code\tCourse Name\tSubject Code\tSection Number\tCapacity\tLecture Time\tFinal Exam Date/Time\tLocation\tTeacher Name\n");
             for (Course course : courses) {
-                writer.write("Course Code\tCourse Name\tSubject Code\tSection Number\tCapacity\tLecture Time\tFinal Exam Date/Time\tLocation\tTeacher Name\n");
-                writer.write(course.getCourseName() + "\t" +
-                        course.getCourseCode() + "\t" +
-                        course.getSubjectName() + "\t" +
+                writer.write(course.getCourseCode() + "\t" +
+                        course.getCourseName() + "\t" +
+                        course.getSubjectCode() + "\t" +
                         course.getSectionNumber() + "\t" +
                         course.getTeacherName() + "\t" +
                         course.getCapacity() + "\t" +
@@ -116,21 +119,22 @@ public class CourseManager {
     }
 
     public void loadCoursesFromFile() { //loads all courses
+        String line;
+        int row = 0;
         courses.clear(); // Clear the current list to avoid duplication
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            int i = 0;
-            String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\t");
 
-                if (i > 0) {
+                if (row >= 1) {
+                    String[] parts = line.split("\t");
+
                     if (parts.length == 9) {
                         Course course = new Course(parts[0], parts[1], parts[2], parts[3], Integer.parseInt(parts[4]), parts[5],
                                 parts[6], parts[7], parts[8]);
-                        courses.add(course);
+                        this.courses.add(course);
                     }
                 }
-                i = 1;
+                row+=1;
             }
             System.out.println("Courses loaded from file.");
         } catch (IOException e) {

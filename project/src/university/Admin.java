@@ -171,9 +171,10 @@ public class Admin extends User {
         String tuition =  "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
-        } else {
+        } else if(AcademicLevel.equals("Graduate") ) {
             tuition = "$4000";
-        }
+        } else {tuition = "$0";}
+
         String Grades = "A";
 
         return new Student(studentID, name, address, Telephone,
@@ -230,10 +231,10 @@ public class Admin extends User {
         String tuition = "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
-        } else {
+        } else if(AcademicLevel.equals("Graduate") ) {
             tuition = "$4000";
-        }
-        String Grades = "A";
+        } else {tuition = "$0";}
+        String Grades = "0";
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
@@ -431,27 +432,36 @@ public class Admin extends User {
     }
 
     private Course getCourseDetails(Scanner scanner) {
-        System.out.println("Enter course name:");
-        String courseName = scanner.nextLine();
         System.out.println("Enter course code:");
-        String courseCode = scanner.nextLine();
+        // String courseCode = scanner.nextLine();
+        String courseCode = "1";
         System.out.println("Enter subject name:");
-        String subjectName = scanner.nextLine();
+        System.out.println("Enter course name:");
+        //String courseName = scanner.nextLine();
+        String courseName = "Calculus II";
+        //String subjectName = scanner.nextLine();
+        String subjectCode = "MATH001";
         System.out.println("Enter section number:");
-        String sectionNumber = scanner.nextLine();
+        //String sectionNumber = scanner.nextLine();
+        String sectionNumber = "Section 1";
         System.out.println("Enter teacher name:");
-        String teacherName = scanner.nextLine();
+        //String teacherName = scanner.nextLine();
+        String teacherName = " Raymond";
         System.out.println("Enter capacity:");
-        int capacity = scanner.nextInt();
-        scanner.nextLine();
+        //int capacity = scanner.nextInt();
+        int capacity = 21;
         System.out.println("Enter lecture time:");
-        String lectureTime = scanner.nextLine();
+        //String lectureTime = scanner.nextLine();
+        String lectureTime = "Mon/Wed 9-11 AM";
         System.out.println("Enter final exam date/time:");
-        String finalExamDateTime = scanner.nextLine();
+        //String finalExamDateTime = scanner.nextLine();
+        String finalExamDateTime = "12/15/2025 9:00";
         System.out.println("Enter location:");
-        String location = scanner.nextLine();
+        //String location = scanner.nextLine();
+        String location = "Room 101";
 
-        return new Course(courseName, courseCode, subjectName, sectionNumber, capacity, lectureTime, finalExamDateTime, location, teacherName);
+        return new Course(courseCode, courseName, subjectCode, sectionNumber,
+                capacity, lectureTime, finalExamDateTime, location, teacherName);
     }
 
     private Event getEventDetails(Scanner scanner) {
