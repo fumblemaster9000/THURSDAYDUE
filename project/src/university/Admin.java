@@ -252,9 +252,9 @@ public class Admin extends User {
             System.out.println("Enter Section Number ex. Section 1");
             section = scanner.nextLine();
                 if (!courseName.equals("DONE")) {
-                Rolledcourses = courseName + "," + section; //still needs input verif
+                Rolledcourses = courseName + "," + section + ";"; //still needs input verif
             }else{
-                break;
+                break; //output should look like (Calculus I,Section 1;History II,Section 0;...;...;.etc)
             }
         }
 
