@@ -3,6 +3,7 @@ package university;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CourseManager {
 
@@ -168,7 +169,6 @@ public class CourseManager {
 	    return pairs;
     }
 
-
     public List<String[]> getenrolled(String studentID) {
         LoadFile loadFile = new LoadFile();
         String Line = loadFile.ID_FetchThing("TextData/Student.txt", studentID, "Registered Courses");
@@ -195,7 +195,29 @@ public class CourseManager {
         }
     }
 
-
+    public void courseRegisterStudent(String studentID){
+        LoadFile loadFile = new LoadFile();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the course name for the student to be enrolled to: ");
+        String courseName = scan.nextLine();
+        System.out.println("Enter the section to enroll the student: ");
+        String section = scan.nextLine();
+        String Line = loadFile.ID_FetchThing("TextData/Student.txt", studentID, "Registered Courses");
+        if (!Line.equals("na")) {
+            if (Line.contains(courseName + "," + section)) {
+                System.out.println("Student already enrolled in this course");
+                return;
+            } else if (Line.contains(courseName)) {
+                //replace section at course *complicated
+            } else {
+                Line = Line + courseName + "," + section + ";";
+            }
+        }
+        else{
+            Line = courseName + "," + section + ";";
+        }
+        loadFile.writeToFile("TextData/Student.txt", "Registered Courses", studentID, Line);
+    }
 }
 
 

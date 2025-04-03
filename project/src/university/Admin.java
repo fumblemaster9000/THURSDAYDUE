@@ -151,7 +151,9 @@ public class Admin extends User {
                 break;
 
             case 5:
-
+                System.out.println("Enter the student ID: ");
+                String StudentID = scanner.nextLine();
+                courseManager.courseRegisterStudent(StudentID);
                 break;
             case 6:
                 break;
