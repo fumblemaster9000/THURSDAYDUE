@@ -432,13 +432,13 @@ public class Admin extends User {
     }
 
     private Course getCourseDetails(Scanner scanner) {
+        System.out.println("Enter course code:");
+        // String courseCode = scanner.nextLine();
+        String courseCode = "1";
+        System.out.println("Enter subject name:");
         System.out.println("Enter course name:");
         //String courseName = scanner.nextLine();
         String courseName = "Calculus II";
-        System.out.println("Enter course code:");
-       // String courseCode = scanner.nextLine();
-        String courseCode = "1";
-        System.out.println("Enter subject name:");
         //String subjectName = scanner.nextLine();
         String subjectCode = "MATH001";
         System.out.println("Enter section number:");
@@ -450,7 +450,6 @@ public class Admin extends User {
         System.out.println("Enter capacity:");
         //int capacity = scanner.nextInt();
         int capacity = 21;
-        scanner.nextLine();
         System.out.println("Enter lecture time:");
         //String lectureTime = scanner.nextLine();
         String lectureTime = "Mon/Wed 9-11 AM";
@@ -461,7 +460,7 @@ public class Admin extends User {
         //String location = scanner.nextLine();
         String location = "Room 101";
 
-        return new Course(courseName, courseCode, subjectCode, sectionNumber,
+        return new Course(courseCode, courseName, subjectCode, sectionNumber,
                 capacity, lectureTime, finalExamDateTime, location, teacherName);
     }
 

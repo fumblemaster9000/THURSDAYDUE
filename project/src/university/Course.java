@@ -98,7 +98,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course [Name=" + courseName + ", Code=" + courseCode + ", Subject=" + subjectCode +
+        return "Course [Code=" + courseCode + ", Name=" + courseName +  ", Subject=" + subjectCode +
                 ", Section=" + sectionNumber + ", Teacher=" + teacherName + ", Capacity=" + capacity +
                 ", Lecture Time=" + lectureTime + ", Final Exam=" + finalExamDateTime + ", Location=" + location + "]";
     }
