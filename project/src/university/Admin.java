@@ -183,7 +183,6 @@ public class Admin extends User {
         } else if(AcademicLevel.equals("Graduate") ) {
             tuition = "$4000";
         } else {tuition = "$0";}
-
         String Grades = "A";
 
         return new Student(studentID, name, address, Telephone,

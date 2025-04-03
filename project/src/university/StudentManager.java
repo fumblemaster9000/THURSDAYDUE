@@ -31,22 +31,39 @@ public class StudentManager {
     }
 
     public void editprofile(Student student) {
-        Scanner scan = new Scanner(in);
-        System.out.println("1. : Edit the password");
-        System.out.println("2. : Upload a picture to change the profile photo");
+        loadStudentFromFile();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("1. Edit the password");
+        System.out.println("2. Upload a picture to change the profile photo");
         int choice = scan.nextInt();
+
         switch (choice) {
             case 1:
                 System.out.print("Enter your new password: ");
-                scan.nextLine();
-                student.setPassword(scan.nextLine());
-                fileload.writeToFile("TextData/Student.txt","Password", student.getStudentID(),student.getpassword());
+                scan.nextLine(); // Consume newline character
+                String newPassword = scan.nextLine();
+                student.setPassword(newPassword);
+
+                // Update the file with the new password
+                fileload.writeToFile("TextData/Student.txt", "Password", student.getStudentID(), student.getpassword());
+                System.out.println("Password updated successfully!");
                 break;
 
             case 2:
-                System.out.print("Upload your photo:");
-                //code for photo upload
+                System.out.print("Upload your photo: ");
+                String newPhoto = scan.nextLine(); // Capture the photo details
+                student.setProfilePhoto(newPhoto);
+
+                // Update the file with the new profile photo
+                fileload.writeToFile("TextData/Student.txt", "Profile Photo", student.getStudentID(), student.getProfilePhoto());
+                System.out.println("Profile photo updated successfully!");
+                break;
+
+            default:
+                System.out.println("Invalid choice. Please try again.");
         }
+
+        // Save changes to the file
         saveStudentToFile();
     }
 
@@ -114,6 +131,7 @@ public class StudentManager {
     private void saveStudentToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword\tGrades\tTuition\tRegistered Courses");
+            System.out.println("Number of students: " + students.size());
             writer.newLine();
             for (Student student : students) {
                 writer.write(student.getStudentID() + "\t" +
@@ -129,8 +147,8 @@ public class StudentManager {
                         student.getProgress() + "\t" +
                         student.getpassword() + "\t" +
                         student.getGrades() + "\t" +
-                        student.getTuition() + "\t"
-                + student.getRolledCourses());
+                        student.getTuition() + "\t" +
+                        student.getRolledCourses());
                 writer.newLine();
             }
             System.out.println("Student saved to file.");

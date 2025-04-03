@@ -9,7 +9,7 @@ public class Set_Get_Details {
     private StudentManager studentManager = new StudentManager();
     private FacultyManager facultyManager = new FacultyManager();
 
-     Student getStudentDetails(String studentID){
+     Student getStudentDetails(String studentID ){
         String name = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Name");
         String address = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Address");
         String Telephone = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Telephone");
