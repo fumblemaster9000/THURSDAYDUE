@@ -41,6 +41,7 @@ public class FacultyManager {
         }
     }
 
+
     public void viewAssignedCourse(Faculty faculty){
         LoadFile fileload = new LoadFile();
         ArrayList<String> CoursesInformation = fileload.fetchAll("TextData/Courses.txt", faculty.getCoursesOffered(), "Subject Code"); //returns subject code
