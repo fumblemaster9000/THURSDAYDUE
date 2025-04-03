@@ -438,32 +438,23 @@ public class Admin extends User {
 
     private Course getCourseDetails(Scanner scanner) {
         System.out.println("Enter course code:");
-        // String courseCode = scanner.nextLine();
-        String courseCode = "1";
-        System.out.println("Enter subject name:");
+        String courseCode = scanner.nextLine();
         System.out.println("Enter course name:");
-        //String courseName = scanner.nextLine();
-        String courseName = "Calculus II";
-        //String subjectName = scanner.nextLine();
-        String subjectCode = "MATH001";
+        String courseName = scanner.nextLine();
+        System.out.println("Enter subject name:");
+        String subjectCode = scanner.nextLine();
         System.out.println("Enter section number:");
-        //String sectionNumber = scanner.nextLine();
-        String sectionNumber = "Section 1";
+        String sectionNumber = scanner.nextLine();
         System.out.println("Enter teacher name:");
-        //String teacherName = scanner.nextLine();
-        String teacherName = " Raymond";
+        String teacherName = scanner.nextLine();
         System.out.println("Enter capacity:");
-        //int capacity = scanner.nextInt();
-        int capacity = 21;
+        int capacity = scanner.nextInt();
         System.out.println("Enter lecture time:");
-        //String lectureTime = scanner.nextLine();
-        String lectureTime = "Mon/Wed 9-11 AM";
+        String lectureTime = scanner.nextLine();
         System.out.println("Enter final exam date/time:");
-        //String finalExamDateTime = scanner.nextLine();
-        String finalExamDateTime = "12/15/2025 9:00";
+        String finalExamDateTime = scanner.nextLine();
         System.out.println("Enter location:");
-        //String location = scanner.nextLine();
-        String location = "Room 101";
+        String location = scanner.nextLine();
 
         return new Course(courseCode, courseName, subjectCode, sectionNumber,
                 capacity, lectureTime, finalExamDateTime, location, teacherName);
