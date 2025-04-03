@@ -9,7 +9,7 @@ public class Set_Get_Details {
     private StudentManager studentManager = new StudentManager();
     private FacultyManager facultyManager = new FacultyManager();
 
-    private Student getStudentDetails(String studentID){
+     Student getStudentDetails(String studentID){
         String name = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Name");
         String address = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Address");
         String Telephone = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Telephone");
@@ -37,7 +37,7 @@ public class Set_Get_Details {
                 password,tuition,Grades, Rolledcourses);
     }
 
-    private Student setStudentDetails(Scanner scanner){
+     Student setStudentDetails(Scanner scanner){
         LoadFile fileload = new LoadFile();
         int[][] arr = fileload.arraydimension("TextData/Student.txt");
         String checker = "";
@@ -158,7 +158,7 @@ public class Set_Get_Details {
         return new Faculty(FacultyID, name, facultyDegree, ResearchInterest,
                 email, OfficeLocation, CoursesOffered, password);
     }
-    private Course getCourseDetails(Scanner scanner) {
+     Course getCourseDetails(Scanner scanner) {
         System.out.println("Enter course code:");
         String courseCode = scanner.nextLine();
         System.out.println("Enter course name:");
@@ -182,7 +182,7 @@ public class Set_Get_Details {
                 capacity, lectureTime, finalExamDateTime, location, teacherName);
     }
 
-    private Event getEventDetails(Scanner scanner) {
+     Event getEventDetails(Scanner scanner) {
         System.out.println("Enter event name:");
         String eventName = scanner.nextLine();
         System.out.println("Enter event code:");

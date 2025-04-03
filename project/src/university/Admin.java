@@ -325,8 +325,8 @@ public class Admin extends User {
             switch (choice) {
                 case 1:
                     courseManager.viewCourses();
-                    Course newCourse = getCourseDetails(scanner);
-                    courseManager.addCourse(newCourse);
+                    Set_Get_Details newCourse = new Set_Get_Details();
+                    courseManager.addCourse(newCourse.getCourseDetails(scanner));
                     break;
 
                 case 2:
@@ -335,8 +335,8 @@ public class Admin extends User {
                     String courseCode = scanner.nextLine();
                     for (Course course : courses){
                         if(course.getCourseCode().equals(courseCode)){
-                            Course updatedCourse = getCourseDetails(scanner);
-                            courseManager.editCourse(courseCode, updatedCourse);
+                            Set_Get_Details updatedCourse = new Set_Get_Details();
+                            courseManager.editCourse(courseCode, updatedCourse.getCourseDetails(scanner));
                         }
                     }
                     break;
@@ -347,8 +347,8 @@ public class Admin extends User {
                     courseCode = scanner.nextLine();
                     for (Course course : courses){
                         if(course.getCourseCode().equals(courseCode)){
-                            Course updatedCourse = getCourseDetails(scanner);
-                            courseManager.editCourse(courseCode, updatedCourse);
+                            Set_Get_Details updatedCourse = new Set_Get_Details();
+                            courseManager.editCourse(courseCode, updatedCourse.getCourseDetails(scanner));
                         }
                     }
                     courseManager.deleteCourse(courseCode);
@@ -407,14 +407,14 @@ public class Admin extends User {
 
             switch (choice) {
                 case 1:
-                    Event newEvent = getEventDetails(scanner);
-                    eventManager.addEvent(newEvent);
+                    Set_Get_Details newEvent = new Set_Get_Details();
+                    eventManager.addEvent(newEvent.getEventDetails(scanner));
                     break;
                 case 2:
                     System.out.println("Enter event code to edit:");
                     String eventCode = scanner.nextLine();
-                    Event updatedEvent = getEventDetails(scanner);
-                    eventManager.editEvent(eventCode, updatedEvent);
+                    Set_Get_Details updatedEvent = new Set_Get_Details();
+                    eventManager.editEvent(eventCode, updatedEvent.getEventDetails(scanner));
                     break;
                 case 3:
                     System.out.println("Enter event code to delete:");
@@ -437,55 +437,6 @@ public class Admin extends User {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-    }
-
-    private Course getCourseDetails(Scanner scanner) {
-        System.out.println("Enter course code:");
-        String courseCode = scanner.nextLine();
-        System.out.println("Enter course name:");
-        String courseName = scanner.nextLine();
-        System.out.println("Enter subject name:");
-        String subjectCode = scanner.nextLine();
-        System.out.println("Enter section number:");
-        String sectionNumber = scanner.nextLine();
-        System.out.println("Enter teacher name:");
-        String teacherName = scanner.nextLine();
-        System.out.println("Enter capacity:");
-        int capacity = scanner.nextInt();
-        System.out.println("Enter lecture time:");
-        String lectureTime = scanner.nextLine();
-        System.out.println("Enter final exam date/time:");
-        String finalExamDateTime = scanner.nextLine();
-        System.out.println("Enter location:");
-        String location = scanner.nextLine();
-
-        return new Course(courseCode, courseName, subjectCode, sectionNumber,
-                capacity, lectureTime, finalExamDateTime, location, teacherName);
-    }
-
-    private Event getEventDetails(Scanner scanner) {
-        System.out.println("Enter event name:");
-        String eventName = scanner.nextLine();
-        System.out.println("Enter event code:");
-        String eventCode = scanner.nextLine();
-        System.out.println("Enter description:");
-        String description = scanner.nextLine();
-        System.out.println("Enter header image (or leave blank for default):");
-        String headerImage = scanner.nextLine();
-        if (headerImage.isEmpty()) {
-            headerImage = "default.jpg";
-        }
-        System.out.println("Enter location:");
-        String location = scanner.nextLine();
-        System.out.println("Enter date and time:");
-        String dateTime = scanner.nextLine();
-        System.out.println("Enter capacity:");
-        int capacity = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Enter cost:");
-        String cost = scanner.nextLine();
-
-        return new Event(eventCode,eventName, description,  location, dateTime, capacity, cost, headerImage);
     }
 
 }
