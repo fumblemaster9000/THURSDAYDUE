@@ -1,5 +1,6 @@
 package university;
 
+import javax.management.relation.Role;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -173,6 +174,7 @@ public class Admin extends User {
         String thesistitle = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Thesis Title");
         String progress = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Progress");
         String password = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Password");
+        String Rolledcourses = fileload.ID_FetchThing("TextData/Student.txt", studentID, "Registered Courses");
         String tuition =  "$5000";
         if (AcademicLevel.equals("Undergraduate")) {
             tuition = "$5000";
@@ -185,7 +187,7 @@ public class Admin extends User {
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
                 subjectsregistered, thesistitle, progress,
-                password,tuition,Grades);
+                password,tuition,Grades, Rolledcourses);
     }
 
     private Student setStudentDetails(Scanner scanner){
@@ -240,11 +242,22 @@ public class Admin extends User {
             tuition = "$4000";
         } else {tuition = "$0";}
         String Grades = "0";
+        String Rolledcourses = "";
+        String input = "";
+        System.out.println("Enter the courses to be enrolled by the student, type \"DONE\" to finish");
+        while(true){
+            input = scanner.nextLine();
+            if (!input.equals("DONE")) {
+                Rolledcourses = Rolledcourses + "," + input; //still needs input verif
+            }else{
+                break;
+            }
+        }
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,
                 subjectsregistered, thesistitle, progress,
-                password,tuition,Grades);
+                password,tuition,Grades, Rolledcourses);
     }
 
     private void handleFacultyOptions(Scanner scanner, FacultyManager facultyManager){

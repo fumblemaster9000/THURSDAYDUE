@@ -20,7 +20,7 @@ public class Student extends User {
     public Student(String userId, String name, String address, String Telephone, String email,
             String AcademicLevel, String CurrentSemester, String ProfilePhoto,
             String subjectsregistered, String thesistitle, String progress,
-            String password, String tuition, String Grades) {
+            String password, String tuition, String Grades, String Rolledcourses) {
 
         super(userId, password, name, email); // Matches superclass fields
         this.address = address;
@@ -91,7 +91,14 @@ public class Student extends User {
         return Grades;
     }
 
+    public ArrayList<String> getRolledCourses(){
+        return Rolledcourses;
+    }
+
     //SETTERS
+    public void setRolledcourses(ArrayList<String> Rolledcourses){
+        this.Rolledcourses = Rolledcourses;
+    }
 
     public void setAddress(String address) {
         this.address = address;

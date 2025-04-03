@@ -122,7 +122,8 @@ public class StudentManager {
                         student.getProgress() + "\t" +
                         student.getpassword() + "\t" +
                         student.getGrades() + "\t" +
-                        student.getTuition());
+                        student.getTuition() + "\t"
+                + student.getRole);
                 writer.newLine();
             }
             System.out.println("Student saved to file.");
@@ -186,10 +187,10 @@ public class StudentManager {
                 if (row >= 1){
                     String[] parts = line.split("\t");
 
-                    if (parts.length == 14) {
+                    if (parts.length == 15) {
                         Student student = new Student(parts[0], parts[1], parts[2], parts[3],
                                 parts[4], parts[5], parts[6], parts[7],parts[8],parts[9],
-                                parts[10],parts[11],parts[12],parts[13]);
+                                parts[10],parts[11],parts[12],parts[13], parts[14]);
                         this.students.add(student);
                     }}
                 row+=1;
