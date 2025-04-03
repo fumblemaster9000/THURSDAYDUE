@@ -125,7 +125,7 @@ public class Set_Get_Details {
                 facultyEmail, OfficeLocation, CoursesOffered, password);
     }
 
-    private Faculty setFacultyDetails(Scanner scanner, boolean add){
+     Faculty setFacultyDetails(Scanner scanner, boolean add){
         System.out.println("Enter faculty ID");
         String FacultyID = scanner.nextLine();
         scanner.nextLine();

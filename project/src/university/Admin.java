@@ -280,15 +280,15 @@ public class Admin extends User {
         switch (choice) {
             case 1:
                 boolean add = true;
-                Faculty newFaculty = setFacultyDetails(scanner,add);
-                facultyManager.addFaculty(newFaculty);
+                Set_Get_Details newFaculty = new Set_Get_Details();
+                facultyManager.addFaculty(newFaculty.setFacultyDetails(scanner,add));
                 break;
             case 2:
                 add = false;
                 System.out.println("Enter the email of faculty");
                 String facultyEmail = scanner.nextLine();
-                Faculty updatedFacultyProfile = setFacultyDetails(scanner,add);
-                facultyManager.editFaculty(facultyEmail, updatedFacultyProfile);
+                Set_Get_Details updatedFacultyProfile = new Set_Get_Details();
+                facultyManager.editFaculty(facultyEmail, updatedFacultyProfile.setFacultyDetails(scanner,add));
                 break;
             case 3:
                 System.out.println("Enter the email of faculty");
@@ -298,28 +298,14 @@ public class Admin extends User {
             case 4:
                 System.out.println("Enter the email of faculty");
                 facultyEmail = scanner.nextLine();
-                Faculty newFacultyDetails = getFacultyDetails(facultyEmail);
-                facultyManager.viewprofile(newFacultyDetails);
+                Set_Get_Details newFacultyDetails = new Set_Get_Details();
+                facultyManager.viewprofile(newFacultyDetails.getFacultyDetails(facultyEmail));
                 break;
             case 5:
                 return;
             default:
                 System.out.println("Invalid choice. Please try again.");
         }
-    }
-
-    private Faculty getFacultyDetails(String facultyEmail){
-
-        String FacultyID = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email","Faculty ID");
-        String name = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email", "Name");
-        String facultyDegree = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email","Degree");
-        String ResearchInterest = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email", "Research Interest");
-        String OfficeLocation = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email","Office Location");
-        String CoursesOffered = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email","Courses Offered");
-        String password = fileload.fetchAnything1("TextData/Faculty.txt", facultyEmail, "Email","Password");
-
-        return new Faculty(FacultyID, name, facultyDegree, ResearchInterest,
-                facultyEmail, OfficeLocation, CoursesOffered, password);
     }
 
     private void handleCourseOptions(Scanner scanner, CourseManager courseManager) {
@@ -500,40 +486,6 @@ public class Admin extends User {
         String cost = scanner.nextLine();
 
         return new Event(eventCode,eventName, description,  location, dateTime, capacity, cost, headerImage);
-    }
-
-    private Faculty setFacultyDetails(Scanner scanner, boolean add){
-        System.out.println("Enter faculty ID");
-        String FacultyID = scanner.nextLine();
-        scanner.nextLine();
-        System.out.println("Enter faculty's name");
-        String name = scanner.nextLine();
-        scanner.nextLine();
-        System.out.println("Enter the Degree of the faculty");
-        String facultyDegree = scanner.nextLine();
-        scanner.nextLine();
-        System.out.println("Enter the research interest of the faculty");
-        String ResearchInterest = scanner.nextLine();
-        scanner.nextLine();
-        if(!add){
-            System.out.println("Enter the faculty's Email");
-        }
-        String email = add ? facultyManager.Email(name) : scanner.nextLine();
-        scanner.nextLine();
-        System.out.println("Enter the faculty's office location");
-        String OfficeLocation = scanner.nextLine();
-        scanner.nextLine();
-        System.out.println("Enter the courses offered of the faculty");
-        String CoursesOffered = scanner.nextLine();
-        scanner.nextLine();
-        if(!add){
-            System.out.println("Enter the faculty's password");
-        }
-        String password = add ? "default123" : scanner.nextLine();
-        scanner.nextLine();
-
-        return new Faculty(FacultyID, name, facultyDegree, ResearchInterest,
-                email, OfficeLocation, CoursesOffered, password);
     }
 
 }
