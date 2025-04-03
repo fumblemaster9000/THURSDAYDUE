@@ -95,7 +95,7 @@ public class StudentManager {
                 student.setPassword(updatedStudentProfile.getpassword());
                 student.setGrades(updatedStudentProfile.getGrades());
                 student.setTuition(updatedStudentProfile.getTuition());
-                student.setTuition(updatedStudentProfile.getRolledCourses());
+                student.setRolledcourses(updatedStudentProfile.getRolledCourses());
                 saveStudentToFile();
                 System.out.println("Student updated successfully!");
                 return;
@@ -113,7 +113,7 @@ public class StudentManager {
 
     private void saveStudentToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword\tGrades\tTuition Registered Courses");
+            writer.write("Student ID\tName\tAddress\tTelephone\tEmail\tAcademic Level\tCurrent Semester\tProfile Photo\tSubjects Registered\tThesis Title\tProgress\tPassword\tGrades\tTuition\tRegistered Courses");
             writer.newLine();
             for (Student student : students) {
                 writer.write(student.getStudentID() + "\t" +
