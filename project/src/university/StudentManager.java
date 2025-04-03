@@ -89,6 +89,7 @@ public class StudentManager {
                 student.setPassword(updatedStudentProfile.getpassword());
                 student.setGrades(updatedStudentProfile.getGrades());
                 student.setTuition(updatedStudentProfile.getTuition());
+                student.setTuition(updatedStudentProfile.getRolledCourses());
                 saveStudentToFile();
                 System.out.println("Student updated successfully!");
                 return;

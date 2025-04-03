@@ -91,7 +91,7 @@ public class Student extends User {
         return Grades;
     }
 
-    public ArrayList<String> getRolledCourses(){
+    public String getRolledCourses(){
         return Rolledcourses;
     }
 
