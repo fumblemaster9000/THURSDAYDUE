@@ -144,39 +144,6 @@ public class StudentManager {
         }
     }
 
-    public void RegisterStudent(String Name, String Address, String Telephone, String Email, String Academiclevel, String CurrentSmester, String SubjectsRegistered, String Progress){
-        LoadFile fileload = new LoadFile();
-        int[][] arr = fileload.arraydimension("TextData/Student.txt");
-        String checker = "";
-        String randID = "";
-        while(true) {
-            Random random = new Random();
-            int randomNumber = random.nextInt(10000);
-            if (randomNumber >= 1000) {
-                randID = "S2025" + randomNumber; // For numbers 1000 to 9999
-            } else if (randomNumber >= 100) {
-                randID = "S20250" + randomNumber; // For numbers 100 to 999
-            } else if (randomNumber >= 10) {
-                randID = "S202500" + randomNumber; // For numbers 10 to 99
-            } else {
-                randID = "S2025000" + randomNumber; // For numbers 0 to 9
-            }
-
-            ArrayList<String> array = fileload.fetchAll("TextData/Student.txt", checker, "Student ID");
-            if (array.size() == 0){
-                break;
-            }
-        }
-
-        String[][] array = fileload.readFromFile("TextData/Student.txt");
-        for(int i = 0; i < array.length-1 ; i++){
-            checker = checker + array[i][0] + "\t" + array[i][1] + "\t" + array[i][2] + "\t" + array[i][3] + "\t" + array[i][4] + "\t" + array[i][5] + "\t" + array[i][6] + "\t" + array[i][7] + "\t" + array[i][8] + "\t" + array[i][9] + "\t" + array[i][10] + "\t" + array[i][11] + "\t"+ array[i][12] + "\t" + array[i][13] + "\n";
-        }
-
-        String newString = checker + randID + "\t" + Name + "\t" + Address + "\t" + Telephone + "\t" + Email + "\t" + Academiclevel + "\t" + CurrentSmester + "\t" + "default" + "\t" + SubjectsRegistered + "\t" + "_" + "\t" + Progress + "\t" + "default123";
-        fileload.newRow("TextData/Student.txt", newString);
-    }
-
     public void loadStudentFromFile() {
         String line;
         int row = 0;
