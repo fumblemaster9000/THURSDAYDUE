@@ -178,7 +178,7 @@ public class Student extends User {
                 case 1:
                     StudentManager studentManager = new StudentManager();
                     Set_Get_Details getDetails = new Set_Get_Details();
-                    studentManager.viewprofile(getDetails.getStudentDetails(getemail()));
+                    studentManager.viewprofile(getDetails.getStudentDetails(getStudentID()));
                     break;
                 case 2:
                     studentManager = new StudentManager();
