@@ -64,6 +64,7 @@ public class Admin extends User {
         System.out.println("2. Edit Subject");
         System.out.println("3. Delete Subjects");
         System.out.println("4.View Subjects");
+        System.out.println("5. Back to Main Menu");
         int choice = scan.nextInt();
         switch (choice){
             case 1:
