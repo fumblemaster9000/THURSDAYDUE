@@ -40,13 +40,14 @@ public class StudentManager {
                 System.out.print("Enter your new password: ");
                 scan.nextLine();
                 student.setPassword(scan.nextLine());
-                fileload.writeToFile("TextData/Faculty.txt","Password", student.getStudentID(),student.getpassword());
+                fileload.writeToFile("TextData/Student.txt","Password", student.getStudentID(),student.getpassword());
                 break;
 
             case 2:
                 System.out.print("Upload your photo:");
                 //code for photo upload
         }
+        saveStudentToFile();
     }
 
     public void viewenrolledcourses(String Subject) { //displays list of courses with corresponding subject
