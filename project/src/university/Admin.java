@@ -233,7 +233,7 @@ public class Admin extends User {
         } else {
             tuition = "$4000";
         }
-        String Grades = "0";
+        String Grades = "A";
 
         return new Student(studentID, name, address, Telephone,
                 email, AcademicLevel, CurrentSemester, ProfilePhoto,

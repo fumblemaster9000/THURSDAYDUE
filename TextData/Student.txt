@@ -1,5 +1,5 @@
 Student ID	Name	Address	Telephone	Email	Academic Level	Current Semester	Profile Photo	Subjects Registered	Thesis Title	Progress	Password	Grades	Tuition
-S20250001	Alice Smith	65 Park Street Est.	647 470 8053	alice@alternate.ca	Graduate	Winter 2025	default	ENG101	"Big Baller"	40%	default123	0	0
+S20250001	Alice Smith	My balls	My balls	smith.com	Graduate	my balls	my balls . jpg	BALLS101	"My balls"	60%	default123	0	$4000
 S20250002	Bob Johnson	456 Oak St.	555-5678	bob@example.edu	Graduate	Fall 2025	default	CS201	"The detection of oil under ice by remote mode conversion of ultrasound"	50%	default123	0	0
 S20250003	Carol Williams	789 Pine St.	555-9012	carol@example.edu	Graduate	Fall 2025	default	ENGG402, HIST101	"On the economic optimality of marine reserves when fishing damages habitat"	50%	default123	0	0
 S20250004	Lucka Racki	1767 Jane St.	439-9966	lucka@example.edu	Undergraduate	Fall 2025	default	Bio300	"_"	60%	default123	0	0
