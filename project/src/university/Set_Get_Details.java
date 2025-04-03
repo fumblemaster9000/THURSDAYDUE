@@ -171,6 +171,7 @@ public class Set_Get_Details {
         String teacherName = scanner.nextLine();
         System.out.println("Enter capacity:");
         int capacity = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Enter lecture time:");
         String lectureTime = scanner.nextLine();
         System.out.println("Enter final exam date/time:");
