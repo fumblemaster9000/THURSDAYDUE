@@ -377,18 +377,112 @@ public class Admin extends User {
                     break;
 
                 case 5:
-                    courseManager.viewCourses();
-                    System.out.println("Enter course name to delete:");
-                    courseName= scanner.nextLine();
-                    System.out.println("Enter course name to delete:");
-                    sectionNumber = scanner.nextLine();
-                    for (Course course : courses){
-                        if(course.getCourseName().equals(courseName) && course.getSectionNumber().equals(sectionNumber)){
-                            courseManager.manageEnrollments(courseName, sectionNumber);
+                    System.out.println("Manage Courses - Choose an option:");
+                    System.out.println("1: Add a Course");
+                    System.out.println("2: Delete a Course");
+                    System.out.println("3: Edit a Course");
+                    System.out.println("Enter your choice:");
+
+                    int choice1 = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline left by nextInt()
+
+                    switch (choice1) {
+                        case 1: // Add a Course
+                            System.out.println("Adding a new course...");
+                            System.out.println("Enter Course Name:");
+                            courseName = scanner.nextLine();
+                            System.out.println("Enter Section Number:");
+                            sectionNumber = scanner.nextLine();
+                            System.out.println("Enter Course Code:");
+                            String courseCode = scanner.nextLine();
+                            System.out.println("Enter Subject Code:");
+                            String subjectCode = scanner.nextLine();
+                            System.out.println("Enter Teacher Name:");
+                            String teacherName = scanner.nextLine();
+                            System.out.println("Enter Lecture Time:");
+                            String lectureTime = scanner.nextLine();
+                            System.out.println("Enter Final Exam Date/Time:");
+                            String finalExamDateTime = scanner.nextLine();
+                            System.out.println("Enter Classroom Location:");
+                            String location = scanner.nextLine();
+                            System.out.println("Enter Course Capacity:");
+                            int capacity = scanner.nextInt();
+                            scanner.nextLine(); // Consume newline left by nextInt()
+
+                            // Add the new course
+                            Course newCourse1 = new Course(courseCode, courseName, subjectCode, sectionNumber, capacity, lectureTime, finalExamDateTime, location, teacherName);
+                            courseManager.addCourse(newCourse1);
+                            System.out.println("New course added successfully!");
                             break;
-                        }
+
+                        case 2: // Delete a Course
+                            System.out.println("Deleting a course...");
+                            courseManager.viewCourses();
+                            System.out.println("Enter Course Name to delete:");
+                            courseName = scanner.nextLine();
+                            System.out.println("Enter Section Number to delete:");
+                            sectionNumber = scanner.nextLine();
+
+                            boolean courseDeleted = false;
+                            for (Course course : courseManager.getCourses()) {
+                                if (course.getCourseName().equalsIgnoreCase(courseName) && course.getSectionNumber().equals(sectionNumber)) {
+                                    courseManager.deleteCourse(courseName, sectionNumber);
+                                    courseDeleted = true;
+                                    System.out.println("Course deleted successfully!");
+                                    break;
+                                }
+                            }
+                            if (!courseDeleted) {
+                                System.out.println("The specified course was not found.");
+                            }
+                            break;
+
+                        case 3: // Edit a Course
+                            System.out.println("Editing a course...");
+                            courseManager.viewCourses();
+                            System.out.println("Enter Course Name to edit:");
+                            courseName = scanner.nextLine();
+                            System.out.println("Enter Section Number to edit:");
+                            sectionNumber = scanner.nextLine();
+
+                            boolean courseFound = false;
+                            for (Course course : courseManager.getCourses()) {
+                                if (course.getCourseName().equalsIgnoreCase(courseName) && course.getSectionNumber().equals(sectionNumber)) {
+                                    System.out.println("Enter Updated Course Code:");
+                                    String newCourseCode = scanner.nextLine();
+                                    System.out.println("Enter Updated Subject Code:");
+                                    String newSubjectCode = scanner.nextLine();
+                                    System.out.println("Enter Updated Teacher Name:");
+                                    String newTeacherName = scanner.nextLine();
+                                    System.out.println("Enter Updated Lecture Time:");
+                                    String newLectureTime = scanner.nextLine();
+                                    System.out.println("Enter Updated Final Exam Date/Time:");
+                                    String newFinalExamDateTime = scanner.nextLine();
+                                    System.out.println("Enter Updated Classroom Location:");
+                                    String newLocation = scanner.nextLine();
+                                    System.out.println("Enter Updated Course Capacity:");
+                                    int newCapacity = scanner.nextInt();
+                                    scanner.nextLine(); // Consume the newline left by nextInt()
+
+                                    // Update the course
+                                    Course updatedCourse = new Course(newCourseCode, courseName, newSubjectCode, sectionNumber, newCapacity, newLectureTime, newFinalExamDateTime, newLocation, newTeacherName);
+                                    courseManager.editCourse(courseName, sectionNumber, updatedCourse);
+                                    System.out.println("Course updated successfully!");
+                                    courseFound = true;
+                                    break;
+                                }
+                            }
+                            if (!courseFound) {
+                                System.out.println("The specified course was not found.");
+                            }
+                            break;
+
+                        default:
+                            System.out.println("Invalid option! Please choose a valid number (1-3).");
+                            break;
                     }
                     break;
+
 
                 case 6:
                     courseManager.viewCourses(); // View courses
