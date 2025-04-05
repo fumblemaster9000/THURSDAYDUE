@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
-    private String eventName;
-    private String eventCode;
-    private String description;
-    private String headerImage;
-    private String location;
-    private String dateTime;
-    private int capacity;
-    private String cost;
-    private List<String> registeredStudents = new ArrayList<>();
+    private String eventName; // Name of the event
+    private String eventCode; // Unique code for the event
+    private String description; // Description of the event
+    private String headerImage; // Path to the header image
+    private String location; // Event location
+    private String dateTime; // Date and time of the event
+    private int capacity; // Maximum number of participants the event can accommodate
+    private String cost; // Cost of attending the event
+    private List<String> registeredStudents = new ArrayList<>(); // List of registered participants' names
 
-    // Constructor
-    public Event(String eventCode, String eventName, String description, String location, String dateTime, int capacity, String cost, String headerImage) {
+
+    // Constructor to initialize the Event object
+    public Event(String eventCode, String eventName, String description, String location,
+                 String dateTime, int capacity, String cost, String headerImage) {
         this.eventCode = eventCode;
         this.eventName = eventName;
         this.description = description;
@@ -23,14 +25,15 @@ public class Event {
         this.dateTime = dateTime;
         this.capacity = capacity;
         this.cost = cost;
+
+        // Assign default image if no header image is provided
         this.headerImage = headerImage.isEmpty() ? "default.jpg" : headerImage;
     }
 
-    // Getters and Setters
+    // Getter and Setter methods
     public String getEventName() {
         return eventName;
     }
-
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
@@ -38,7 +41,6 @@ public class Event {
     public String getEventCode() {
         return eventCode;
     }
-
     public void setEventCode(String eventCode) {
         this.eventCode = eventCode;
     }
@@ -46,7 +48,6 @@ public class Event {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -54,7 +55,6 @@ public class Event {
     public String getHeaderImage() {
         return headerImage;
     }
-
     public void setHeaderImage(String headerImage) {
         this.headerImage = headerImage.isEmpty() ? "default.jpg" : headerImage;
     }
@@ -62,7 +62,6 @@ public class Event {
     public String getLocation() {
         return location;
     }
-
     public void setLocation(String location) {
         this.location = location;
     }
@@ -70,7 +69,6 @@ public class Event {
     public String getDateTime() {
         return dateTime;
     }
-
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
@@ -78,7 +76,6 @@ public class Event {
     public int getCapacity() {
         return capacity;
     }
-
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
@@ -86,7 +83,6 @@ public class Event {
     public String getCost() {
         return cost;
     }
-
     public void setCost(String cost) {
         this.cost = cost;
     }
@@ -94,15 +90,18 @@ public class Event {
     public List<String> getRegisteredStudents() {
         return registeredStudents;
     }
-
     public void setRegisteredStudents(List<String> registeredStudents) {
         this.registeredStudents = registeredStudents;
     }
 
     // Add a student to the registered list
     public boolean registerStudent(String studentId, String fileName) {
+        // LoadFile utility to fetch student details from file
         LoadFile load = new LoadFile();
+
+        // Validate if the event has remaining capacity
         if (capacity > getRegisteredStudents().size() - 1) {
+            // Fetch and add the student's name to the registered list
             registeredStudents.add(load.ID_FetchThing(fileName, studentId, "Name"));
             setRegisteredStudents(registeredStudents);
             return true;
@@ -112,13 +111,24 @@ public class Event {
 
     public boolean registerFaculty(String FacultyId) {
         LoadFile load = new LoadFile();
-        if (capacity > getRegisteredStudents().size() - 1) {
-            registeredStudents.add(load.ID_FetchThing("TextData/Faculty.txt", FacultyId, "Name"));
-            setRegisteredStudents(registeredStudents);
+        // Validate if the event has remaining capacity
+        if (capacity > getRegisteredStudents().size()) {
+            // Fetch and add the faculty's name to the registered list
+            String facultyName = load.ID_FetchThing("TextData/Faculty.txt", FacultyId, "Name");
+            if (facultyName == null || facultyName.isEmpty()) {
+                System.out.println("Error: Unable to fetch faculty details.");
+                return false;
+            }
+
+            registeredStudents.add(facultyName); // Add the faculty to the list
+            setRegisteredStudents(registeredStudents); // Update the list on the event
             return true;
+        } else {
+            System.out.println("Error: The event has reached its maximum capacity.");
+            return false;
         }
-        return false;
     }
+
 
     @Override
     public String toString() {

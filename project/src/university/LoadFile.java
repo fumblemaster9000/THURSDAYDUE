@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class LoadFile {
 
+    // Retrieves a single line of user input from the console
     public String userscan() {
         Scanner scanf = new Scanner(System.in); // Input from GUI
         String userinput = scanf.nextLine();
@@ -14,16 +15,17 @@ public class LoadFile {
     }
 
     public void writeToFile(String fileName, String subject, String StudentID, String replacement) { //based on student ID, will write over student attributes
+        // Read the contents of the file into a 2D array
         String[][] arr = readFromFile(fileName);
         File Baller = new File(fileName);
         Baller.delete();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(Baller))) {
 
+            // Initialize an empty string to store each line before writing to the file
             String line = "";
+
+            // Iterate through the rows and columns of the 2D array (arr)
             for (int i = 0; i < arr.length - 1; i++) {//goes row by row until i < arr.length
-
-                //if(StudentID.equals(arr[i][0])){//Is the StudentID the correct person?
-
                 for (int j = 0; j < arr[0].length; j++) { //j is iterated throughout the elements on a row
 
                     if (StudentID.equals(arr[i][0])) {
@@ -131,8 +133,6 @@ public class LoadFile {
 
         for (int i = 0; i < arr.length - 1; i++) {//goes row by row until i < arr.length
 
-            //if(StudentID.equals(arr[i][0])){//Is the StudentID the correct person?
-
             for (int j = 0; j < arr[0].length; j++) { //j is iterated throughout the elements on a row
 
                 if (USERID.equals(arr[i][0])) {
@@ -142,7 +142,6 @@ public class LoadFile {
                         }
                     }
                 }
-
             }
         }
         return "ID NOT FOUND";
